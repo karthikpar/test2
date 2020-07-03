@@ -7,12 +7,12 @@ workflows:
   build_and_push_image:
     jobs:
       - aws-ecr/build-and-push-image:
-          account-url: 
-          aws-access-key-id: \"$AWS_ACCESS_KEY_ID\"
-          aws-secret-access-key: \"$AWS_ECR_ACCOUNT_URL\"
+          account-url: "$AWS_ECR_ACCOUNT_URL"
+          aws-access-key-id: "$AWS_ACCESS_KEY_ID"
+          aws-secret-access-key: "$AWS_SECRET_ACCESS_KEY"
           create-repo: false
           dockerfile: Dockerfile
           path: .
-          region: \"ap-south-1\"
+          region: "ap-south-1"
           repo: circleci-ecr-orb-demo
           tag: "$CIRCLE_SHA1"
