@@ -33,7 +33,7 @@ SHELL=/bin/bash
 build: pre-build docker-build post-build
 
 pre-build:
-          docker build -t $(APP_NAME) .
+	docker build -t $(APP_NAME) .
 
 post-build:
 
