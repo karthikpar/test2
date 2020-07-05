@@ -26,9 +26,9 @@ jobs:
       - run:
           name: Setup VirtualEnv
           command: |
-            yum install epel-release -y 
+            yum install epel-release make unzip-y 
             
-            yum install make -y
+            
             curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
             unzip awscliv2.zip
             ./aws/install
