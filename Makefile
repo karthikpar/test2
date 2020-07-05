@@ -34,7 +34,8 @@ build: pre-build docker-build post-build
 
 pre-build:
 	@echo $(AWS_REGION)
-
+	apk add ca-certificates python3 > /dev/null 2>&1;
+	pip3 install awscli --upgrade --user > /dev/null 2>&1
 post-build:
 	
 
