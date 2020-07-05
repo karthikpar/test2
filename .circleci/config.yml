@@ -18,7 +18,7 @@ workflows:
 jobs:
   build_test:
     docker:
-      - image: circleci/python:2.7.14
+      - image: centos:centos7
     steps:
       - checkout
       - setup_remote_docker:
