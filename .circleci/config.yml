@@ -28,6 +28,6 @@ jobs:
           command: |
             yum install epel-release -y 
             yum install python-pip -y
-            pip3 install awscli --upgrade --user 
+            pip install awscli --upgrade --user 
             make
             
