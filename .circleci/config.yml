@@ -27,4 +27,6 @@ jobs:
            yum install make -y
            yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
            yum install docker -y
+           systemctl start docker
+           systemctl enable docker
             make
