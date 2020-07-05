@@ -36,7 +36,7 @@ pre-build:
 	docker build -t $(APP_NAME) .
 
 post-build:
-
+	@echo $(AWS_REGION)
 
 pre-push:
 
