@@ -1,36 +1,27 @@
 version: 2.1
 
 orbs:
-  aws-ecr: circleci/aws-ecr@6.7.0
+  aws-ecr: circleci/aws-ecr@0.0.4
 
 workflows:
   build_test_deploy:
     jobs:
       - build_test
-      
-      
-      - aws-ecr/build-and-push-image:
-        
-          account-url: AWS_ECR_ACCOUNT_URL
-          aws-access-key-id: AWS_ACCESS_KEY_ID
-          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-          create-repo: false
-                   
-          region: AWS_REGION
-          repo: circleci-ecr-orb-demo
-          tag: "$CIRCLE_BUILD_NUM"
+    
+      - aws-ecr/build_and_push_image:
+          region: ap-south-1
+          account-url: ${AWS_ECR_ACCOUNT_URL}
+          repo: ${CIRCLE_PROJECT_REPONAME}
+          tag: ${CIRCLE_BUILD_NUM}
           requires:
             - build_test
-          
-          
- jobs:
+jobs:
   build_test:
     docker:
       - image: centos:centos7
     steps:
       - checkout
       - run:
-          name: Run Makefile
-          command: |  
-           make
-            
+          name: Setup VirtualEnv
+          command: |
+            make
