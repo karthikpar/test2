@@ -26,7 +26,8 @@ jobs:
       - run:
           name: Setup VirtualEnv
           command: |
-            apk add ca-certificates python3 > /dev/null 2>&1
-            pip3 install awscli --upgrade --user > /dev/null 2>&1
+            yum install epel-release -y 
+            yum install python-pip -y
+            pip3 install awscli --upgrade --user 
             make
             
