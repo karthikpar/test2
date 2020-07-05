@@ -22,7 +22,7 @@
 
 #VERSION=$(shell . $(RELEASE_SUPPORT) ; getVersion)
 #TAG=$(shell . $(RELEASE_SUPPORT); getTag)
-
+APP_NAME=myapp
 SHELL=/bin/bash
 
 #DOCKER_BUILD_CONTEXT=.
