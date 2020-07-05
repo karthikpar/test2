@@ -30,6 +30,6 @@ jobs:
             yum install python-pip -y
             pip install --upgrade pip
             pip install awscli --upgrade --user 
-            yum install make
+            yum install make -y
             make
             
