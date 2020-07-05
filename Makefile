@@ -24,7 +24,7 @@
 #TAG=$(shell . $(RELEASE_SUPPORT); getTag)
 APP_NAME=myapp
 SHELL=/bin/bash
-
+ECS_LOGIN =$(shell aws ecr get-login)
 #DOCKER_BUILD_CONTEXT=.
 #DOCKER_FILE_PATH=Dockerfile
 
@@ -34,8 +34,8 @@ build: pre-build docker-build post-build
 
 pre-build:
 	@echo $(AWS_REGION)
-	eval $(aws ecr get-login --no-include-email)
-	aws ecr get-login --no-include-email
+	@$(ECS_LOGIN)
+	
 post-build:
 	
 
