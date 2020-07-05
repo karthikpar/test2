@@ -29,4 +29,6 @@ APP_NAME=myapp
 # Build the container
 build: ## Build the container
             
-            @echo $(AWS_REGION);docker build -t $(APP_NAME) .
+            docker build -t $(APP_NAME) . 
+buildenv:
+        echo $(AWS_REGION)
