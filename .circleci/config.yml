@@ -6,13 +6,18 @@ orbs:
 workflows:
   build_and_push_image:
     jobs:
+      
       - aws-ecr/build-and-push-image:
+         - run:
+          name: makefilerun
+          command: |
+           make
           account-url: AWS_ECR_ACCOUNT_URL
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           create-repo: false
-          dockerfile: Dockerfile
-          path: .
+          
+          
           region: AWS_REGION
           repo: circleci-ecr-orb-demo
           tag: "$CIRCLE_BUILD_NUM"
