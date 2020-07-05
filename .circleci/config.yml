@@ -6,20 +6,33 @@ orbs:
 workflows:
   build_and_push_image:
     jobs:
+      - build_test
+      - docker_hub_build_push_image:
+          requires:
+            - build_test
       
       - aws-ecr/build-and-push-image:
-        - steps:
-        - checkout
-         - run:
-          name: makefilerun
-          command: |
-           make
+        
           account-url: AWS_ECR_ACCOUNT_URL
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           create-repo: false
-          
-          
+                   
           region: AWS_REGION
           repo: circleci-ecr-orb-demo
           tag: "$CIRCLE_BUILD_NUM"
+          requires:
+            - build_test
+          
+          
+ jobs:
+  build_test:
+    docker:
+      - image: centos7:centos7
+    steps:
+      - checkout
+      - run:
+          name: Run Makefile
+          command: |  
+           make
+            make
