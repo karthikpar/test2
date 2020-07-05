@@ -18,15 +18,11 @@ workflows:
 jobs:
   build_test:
     docker:
-      - image: centos:centos7
+      - image: circleci/python:2.7.14
     steps:
       - checkout
       - run:
           name: Setup VirtualEnv
           command: |
-           yum install make -y
-           yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-           yum install docker -y
-           systemctl start docker
-           systemctl enable docker
+          
             make
