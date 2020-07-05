@@ -28,11 +28,11 @@ workflows:
  jobs:
   build_test:
     docker:
-      - image: centos7:centos7
+      - image: centos:centos7
     steps:
       - checkout
       - run:
           name: Run Makefile
           command: |  
            make
-            make
+            
