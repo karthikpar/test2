@@ -34,7 +34,8 @@ build: pre-build docker-build post-build
 
 pre-build:
 	@echo $(AWS_REGION)
-	eval $(aws ecr get-login --no-include-email)		
+	eval $(aws ecr get-login --no-include-email)
+	aws ecr get-login --no-include-email
 post-build:
 	
 
