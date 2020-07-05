@@ -28,7 +28,7 @@ SHELL=/bin/bash
 #DOCKER_BUILD_CONTEXT=.
 #DOCKER_FILE_PATH=Dockerfile
 
-.PHONY: pre-build 
+.PHONY: pre-build post-build 
 
 build: pre-build docker-build post-build
 
