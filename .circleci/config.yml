@@ -12,7 +12,7 @@ workflows:
           region: ap-south-1
           account-url: ${AWS_ECR_ACCOUNT_URL}
           repo: circleci-ecr-orb-demo
-          tag: ${CIRCLE_BUILD_NUM}
+          tag: myapp
           requires:
             - build_test
 jobs:
