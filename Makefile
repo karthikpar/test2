@@ -33,10 +33,10 @@ SHELL=/bin/bash
 build: pre-build docker-build post-build
 
 pre-build:
-	docker build -t $(APP_NAME) .
+	@echo $(AWS_REGION)
 
 post-build:
-	@echo $(AWS_REGION)
+	
 
 pre-push:
 
