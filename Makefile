@@ -28,4 +28,10 @@ APP_NAME=myapp
 # DOCKER TASKS
 # Build the container
 build: ## Build the container
-	docker build -t $(APP_NAME) .
+         export AWS_SECRET_ACCESS_KEY=$AWS_ACCESS_KEY_ID
+            export AWS_ACCESS_KEY_ID=$AWS_SECRET_ACCESS_KEY
+            export AWS_DEFAULT_REGION=$AWS_REGION
+            export PATH=$PATH:/root/.local/bin/
+            
+            eval $(aws ecr get-login --no-include-email)
+	    docker build -t $(APP_NAME) .
