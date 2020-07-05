@@ -4,7 +4,7 @@ orbs:
   aws-ecr: circleci/aws-ecr@6.7.0
 
 workflows:
-  build_and_push_image:
+  build_test_deploy:
     jobs:
       - build_test
       - docker_hub_build_push_image:
