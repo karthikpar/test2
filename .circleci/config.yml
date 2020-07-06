@@ -37,8 +37,9 @@ jobs:
             tar -xz -C /tmp -f /tmp/docker-$VER.tgz
             mv /tmp/docker/* /usr/bin
             
-            login="$(aws ecr get-login)"
-            ${login}
+            aws --version
+            
+            
             
           
             
