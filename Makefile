@@ -34,8 +34,8 @@ build: pre-build docker-build post-build
 
 pre-build:
 	docker build -t $(APP_NAME) . 
-	docker tag $(APP_NAME) "${AWS_ECR_ACCOUNT_URL}/app:${CIRCLE_SHA1}"
-	docker push "${AWS_ECR_ACCOUNT_URL}/app:${CIRCLE_SHA1}"
+	docker tag $(APP_NAME) "${AWS_ECR_ACCOUNT_URL}/circleci-ecr-orb-demo:${CIRCLE_SHA1}"
+	docker push "${AWS_ECR_ACCOUNT_URL}/circleci-ecr-orb-demo:${CIRCLE_SHA1}"
 	
 post-build:
 	
