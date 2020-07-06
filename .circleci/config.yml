@@ -42,6 +42,7 @@ jobs:
              export AWS_DEFAULT_REGION=${AWS_REGION}
             login="$(aws ecr get-login)"
             ${login}
+            make
             
             
             
